@@ -12,7 +12,7 @@ class DataSuccess<T> extends DataState<T> {
   const DataSuccess(T data) : super(data: data);
 }
 
-class DateFailed<T> extends DataState<T> {
+class DataFailed<T> extends DataState<T> {
   // ignore: deprecated_member_use
-  const DateFailed(DioError error) : super(error: error);
+  const DataFailed(DioError error) : super(error: error);
 }
