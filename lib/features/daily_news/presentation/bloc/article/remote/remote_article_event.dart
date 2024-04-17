@@ -3,5 +3,5 @@ abstract class RemoteArticlesEvent {
 }
 
 class GetArticles extends RemoteArticlesEvent {
-  const GetArticles();
+  const   GetArticles();
 }

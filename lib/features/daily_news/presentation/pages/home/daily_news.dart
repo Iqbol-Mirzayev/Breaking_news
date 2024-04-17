@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nimadir/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 import 'package:nimadir/features/daily_news/presentation/bloc/article/remote/remote_article_state.dart';
+import 'package:nimadir/features/daily_news/presentation/widgets/article_tile.dart';
 
 class DailyNews extends StatelessWidget {
   const DailyNews({super.key});
@@ -19,7 +20,10 @@ class DailyNews extends StatelessWidget {
   _buildAppBar() {
     return AppBar(
       centerTitle: true,
-      title: Text("Daily News", style: TextStyle(color: Colors.black)),
+      title: const Text(
+        "Daily News",
+        style: TextStyle(color: Colors.black),
+      ),
     );
   }
 
@@ -39,10 +43,11 @@ class DailyNews extends StatelessWidget {
         if (state is RemoteArticlesDone) {
           return ListView.builder(
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text("$index"),
+              return ArticleWidget(
+                article: state.articles![index],
               );
             },
+            itemCount: state.articles!.length,
           );
         }
         return const SizedBox();
